@@ -1,6 +1,6 @@
 ﻿namespace ServiceConcentParseMesUZ
 {
-    partial class Service1
+    partial class ServiceKernel
     {
         /// <summary> 
         /// Required designer variable.
