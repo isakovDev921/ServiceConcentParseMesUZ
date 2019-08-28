@@ -1,6 +1,6 @@
 ﻿namespace ServiceConcentParseMesUZ
 {
-    partial class Installer1
+    partial class InstallerService
     {
         /// <summary>
         /// Required designer variable.

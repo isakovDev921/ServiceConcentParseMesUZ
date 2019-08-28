@@ -8,13 +8,18 @@ namespace ServiceConcentParseMesUZ
 {
     public static class ParseDataLoop
     {
-        public static string test2 =" 1";
+        private static EventWaitHandle ev = null;
 
         public static Thread mainThreadlLoop = null;
         public static bool isRunLoop { set; get; } = true;
         public static void Run()
         {
            
+        }
+
+        public static void SetEv()
+        {
+            ev.Set();
         }
     }
 }

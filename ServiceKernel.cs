@@ -29,9 +29,21 @@ namespace ServiceConcentParseMesUZ
             }
             catch (Exception er)
             {
-                Console.WriteLine("Create service error: " + er.Message);
+                Console.WriteLine("Ошибка создания сервиса: " + er.Message);
             }
         }
+
+        public void StartAsProgram(string[] args)
+        {
+            OnStart(args);
+        }
+
+        public void StopAsProgram()
+        {
+            OnStop();
+        }
+
+
 
         protected override void OnStart(string[] args)
         {
@@ -40,24 +52,27 @@ namespace ServiceConcentParseMesUZ
                 ParseDataLoop.mainThreadlLoop = new Thread(ParseDataLoop.Run);
                 ParseDataLoop.mainThreadlLoop.Name = "ParseDataLoop";
                 ParseDataLoop.mainThreadlLoop.Start();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Ошибка запуска цикла: " + e);
-                
-            }
-            
-        }
+               
 
+            }
+            catch (Exception er)
+            {
+                Console.WriteLine("ParseDataLoop: Ошибка запуска цикла: " + er.Message);               
+            }            
+        }
         protected override void OnStop()
         {
             try
             {
-               
+                if (ParseDataLoop.mainThreadlLoop != null)
+                {
+                    ParseDataLoop.isRunLoop = false;
+                    ParseDataLoop.SetEv();
+                }
             }
-            catch (Exception e)
+            catch (Exception er)
             {
-                Console.WriteLine("Ошибка остановки цикла: " + e);
+                Console.WriteLine("ParseDataLoop: Ошибка остановки цикла: " + er.Message);
             }
 
         }
