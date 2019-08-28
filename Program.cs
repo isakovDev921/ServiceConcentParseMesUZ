@@ -45,7 +45,7 @@ namespace ServiceConcentParseMesUZ
             }
         }
     }
-
+    
 
     [RunInstaller(true)]
     public class WindowsServiceInstaller : System.Configuration.Install.Installer

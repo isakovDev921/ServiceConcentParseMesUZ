@@ -16,7 +16,6 @@ namespace ServiceConcentParseMesUZ
         {
            
         }
-
         public static void SetEv()
         {
             ev.Set();
